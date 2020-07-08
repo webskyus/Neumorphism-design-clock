@@ -1,11 +1,24 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 html {
 	height: -webkit-fill-available;
 	overflow: hidden;
 }
 
 body {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
@@ -20,8 +33,10 @@ body {
 	height: 320px;
 	border-radius: 50%;
 	background: #E3EDF7;
+	-webkit-box-shadow: 16px 10px 48px rgba(136, 165, 191, 0.58),
+		-16px -2px 56px #FFFFFF;
 	box-shadow: 16px 10px 48px rgba(136, 165, 191, 0.58),
-	-16px -2px 56px #FFFFFF;
+		-16px -2px 56px #FFFFFF;
 }
 
 .clock::after {
@@ -30,11 +45,15 @@ body {
 	top: 50%;
 	left: 50%;
 	width: 50%;
-	height: 50%; 
+	height: 50%;
 	border-radius: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+	-webkit-box-shadow: 6px 4px 16px rgba(136, 165, 191, 0.58),
+		-2px -2px 9px rgba(255, 255, 255, 0.8);
 	box-shadow: 6px 4px 16px rgba(136, 165, 191, 0.58),
-	-2px -2px 9px rgba(255, 255, 255, 0.8);
+		-2px -2px 9px rgba(255, 255, 255, 0.8);
 }
 
 .clock-hand {
@@ -45,7 +64,11 @@ body {
 	width: 3px;
 	border-radius: 2px;
 	--rotation: 30;
+	-webkit-transform-origin: bottom;
+	-ms-transform-origin: bottom;
 	transform-origin: bottom;
+	-webkit-transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+	-ms-transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
 	transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
 }
 
@@ -63,9 +86,9 @@ body {
 .clock-hand--hour:after {
 	content: '';
 	position: absolute;
-	left: 0; 
+	left: 0;
 	top: 100%;
-	width: 3px; 
+	width: 3px;
 	height: 20px;
 	background: #828282;
 }
@@ -73,9 +96,9 @@ body {
 .clock-hand--seconds:after {
 	content: '';
 	position: absolute;
-	left: 0; 
+	left: 0;
 	top: 100%;
-	width: 3px; 
+	width: 3px;
 	height: 20px;
 	background: #F7455C;
 }
@@ -84,9 +107,11 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	text-align: center; 
+	text-align: center;
 	--rotation: 0;
-	border-radius: 50%;  
+	border-radius: 50%;
+	-webkit-transform: rotate(var(--rotation));
+	-ms-transform: rotate(var(--rotation));
 	transform: rotate(var(--rotation));
 }
 
@@ -98,15 +123,27 @@ body {
 	background: #B7C5D3;
 }
 
-.clock-numbers.clock-numbers--twelve {--rotation: 0deg}
-.clock-numbers.clock-numbers--three {--rotation: 90deg}
-.clock-numbers.clock-numbers--six {--rotation: 180deg}
-.clock-numbers.clock-numbers--nine {--rotation: 270deg}
+.clock-numbers.clock-numbers--twelve {
+	--rotation: 0deg
+}
+
+.clock-numbers.clock-numbers--three {
+	--rotation: 90deg
+}
+
+.clock-numbers.clock-numbers--six {
+	--rotation: 180deg
+}
+
+.clock-numbers.clock-numbers--nine {
+	--rotation: 270deg
+}
 
 
 
 /* media */
-@media all and (min-width: 1000px), all and (min-height: 1080px) {
+@media all and (min-width: 1000px),
+all and (min-height: 1080px) {
 	.clock {
 		width: 640px;
 		height: 640px;
